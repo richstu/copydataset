@@ -1,3 +1,44 @@
+# copydataset
+
+Tools to copy datasets. Focused on copying nanoaods to ucsb.
+
+## Setup
+
+Run the below command to setup the git repository.
+
+    git clone --recurse-submodules https://github.com/richstu/copydataset
+
+Run the below command to setup the environment.
+    
+    source set_env.sh
+
+## Steps for copying datasets
+
+* Setup meta files.
+The datasets you want to download should be written in the files located in meta.
+For data datasets, edit `data_tag_meta`. For mc and signal datasets, edit `mc_dataset_*`
+
+* Get information about datasets using dasgoclient.
+    make_datasets_jsons.py
+The above command uses the meta files to get information about the datasets.
+The information is stored in json files.
+One can customize the input and output files using arguments, which can be seen with the argument -h.
+Input files:
+  meta/mc_dataset_common_names
+  meta/mc_dataset_2016_names
+  meta/mc_dataset_2017_names
+  meta/mc_dataset_2018_names
+  meta/mc_tag_meta
+  meta/data_tag_meta
+Output files:
+  jsons/mc_datasets.json
+  jsons/data_datasets.json
+
+
+## Test
+
+One can run ./modules/datasets/test/get_datasets/get_datasets.sh to test the scripts.
+
 # Lets make clean structure.
 TODO Do data
 
