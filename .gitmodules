@@ -1,9 +1,9 @@
 [submodule "modules/datasets"]
 	path = modules/datasets
-	url = https://github.com/jaebak/datasets.git
+	url = https://github.com/richstu/datasets.git
 [submodule "modules/jb_utils"]
 	path = modules/jb_utils
-	url = https://github.com/jaebak/jb_utils.git
+	url = https://github.com/richstu/jb_utils.git
 [submodule "modules/queue_system"]
 	path = modules/queue_system
-	url = https://github.com/jaebak/queue_system.git
+	url = https://github.com/richstu/queue_system.git
