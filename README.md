@@ -14,7 +14,7 @@ Run the below command to setup the environment.
 
 ## (Short) Steps for copying datasets
 
-Edit the files in the `meta` directory and run the below commands
+Edit the files in the `meta` directory and run the below commands to get information about the datasets to download.
 
     make_datasets_jsons.py
     filter_datasets_jsons.py
@@ -22,9 +22,32 @@ Edit the files in the `meta` directory and run the below commands
     write_datasets.py
     make_dataset_files_jsons.py
     write_dataset_files.py
-    convert_dataset_files_to_cl.py mc DOWNLOAD_DIRECTORY ./results/cl_mc_dataset_files_info.py
-    convert_dataset_files_to_cl.py data DOWNLOAD_DIRECTORY ./results/cl_data_dataset_files_info.py
-    convert_dataset_files_to_cl.py SIGNAL_NAME DOWNLOAD_DIRECTORY ./results/cl_data_dataset_files_info.py
+    convert_dataset_files_to_cl.py mc DOWNLOAD_DIRECTORY ./results/cl_mc_dataset_files.py
+    convert_dataset_files_to_cl.py data DOWNLOAD_DIRECTORY ./results/cl_data_dataset_files.py
+    convert_dataset_files_to_cl.py SIGNAL_NAME DOWNLOAD_DIRECTORY ./results/cl_SIGNAL_NAME_dataset_files.py
+
+Setup the cms proxy on one of the ucsb servers. (Ex: cms1) Run the below commands to submit to the ucsb job system.
+
+    convert_cl_to_jobs_info.py ./results/cl_mc_dataset_files.py ./jsons/mc_jobs_info.json
+    auto_submit_jobs ./jsons/mc_jobs_info.json -n cms1 -c copy_aods_check_entries.py
+
+    convert_cl_to_jobs_info.py ./results/cl_data_dataset_files.py ./jsons/data_jobs_info.json
+    auto_submit_jobs ./jsons/data_jobs_info.json -n cms1 -c copy_aods_check_entries.py
+
+    convert_cl_to_jobs_info.py ./results/cl_SIGNAL_NAME_dataset_files.py ./jsons/SIGNAL_NAME_jobs_info.json
+    auto_submit_jobs ./jsons/SIGNAL_NAME_jobs_info.json -n cms1 -c copy_aods_check_entries.py
+
+Check reason of failed jobs and set status submit again for failed jobs.
+
+    select_resubmit_jobs.py jsons/auto_mc_jobs_info.json -c copy_aods_check_entries.py
+    select_resubmit_jobs.py jsons/auto_data_jobs_info.json -c copy_aods_check_entries.py
+    select_resubmit_jobs.py jsons/auto_SIGNAL_NAME_jobs_info.json -c copy_aods_check_entries.py
+
+Resubmit jobs if needed.
+
+    auto_submit_jobs ./jsons/resubmit_auto_mc_jobs_info.json -n cms1 -c copy_aods_check_entries.py
+    auto_submit_jobs ./jsons/resubmit_auto_data_jobs_info.json -n cms1 -c copy_aods_check_entries.py
+    auto_submit_jobs ./jsons/resubmit_auto_SIGNAL_NAME_jobs_info.json -n cms1 -c copy_aods_check_entries.py
 
 ## Steps for copying datasets
 
