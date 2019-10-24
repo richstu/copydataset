@@ -26,16 +26,16 @@ Edit the files in the `meta` directory and run the below commands to get informa
     convert_dataset_files_to_cl.py data DOWNLOAD_DIRECTORY ./results/cl_data_dataset_files.py
     convert_dataset_files_to_cl.py SIGNAL_NAME DOWNLOAD_DIRECTORY ./results/cl_SIGNAL_NAME_dataset_files.py
 
-Setup the cms proxy on one of the ucsb servers. (Ex: cms1) Run the below commands to submit to the ucsb job system.
+Setup the cms voms_proxy. Run the below commands to submit to the ucsb job system.
 
     convert_cl_to_jobs_info.py ./results/cl_mc_dataset_files.py ./jsons/mc_jobs_info.json
-    auto_submit_jobs ./jsons/mc_jobs_info.json -n cms1 -c copy_aods_check_entries.py
+    auto_submit_jobs.py ./jsons/mc_jobs_info.json -n cms1 -c copy_aods_check_entries.py
 
     convert_cl_to_jobs_info.py ./results/cl_data_dataset_files.py ./jsons/data_jobs_info.json
-    auto_submit_jobs ./jsons/data_jobs_info.json -n cms1 -c copy_aods_check_entries.py
+    auto_submit_jobs.py ./jsons/data_jobs_info.json -n cms1 -c copy_aods_check_entries.py
 
     convert_cl_to_jobs_info.py ./results/cl_SIGNAL_NAME_dataset_files.py ./jsons/SIGNAL_NAME_jobs_info.json
-    auto_submit_jobs ./jsons/SIGNAL_NAME_jobs_info.json -n cms1 -c copy_aods_check_entries.py
+    auto_submit_jobs.py ./jsons/SIGNAL_NAME_jobs_info.json -n cms1 -c copy_aods_check_entries.py
 
 Check reason of failed jobs and set status submit again for failed jobs.
 
@@ -45,9 +45,9 @@ Check reason of failed jobs and set status submit again for failed jobs.
 
 Resubmit jobs if needed.
 
-    auto_submit_jobs ./jsons/resubmit_auto_mc_jobs_info.json -n cms1 -c copy_aods_check_entries.py
-    auto_submit_jobs ./jsons/resubmit_auto_data_jobs_info.json -n cms1 -c copy_aods_check_entries.py
-    auto_submit_jobs ./jsons/resubmit_auto_SIGNAL_NAME_jobs_info.json -n cms1 -c copy_aods_check_entries.py
+    auto_submit_jobs.py ./jsons/resubmit_auto_mc_jobs_info.json -n cms1 -c copy_aods_check_entries.py
+    auto_submit_jobs.py ./jsons/resubmit_auto_data_jobs_info.json -n cms1 -c copy_aods_check_entries.py
+    auto_submit_jobs.py ./jsons/resubmit_auto_SIGNAL_NAME_jobs_info.json -n cms1 -c copy_aods_check_entries.py
 
 ## Steps for copying datasets
 
@@ -193,7 +193,7 @@ The below command makes a python script that prints the command lines to downloa
  
 DATA_TYPE can be either mc or data or the signal name. DATA_TYPE is used in setting the download folder.
 DATA_TYPE should also be written in `mc_tag_meta`.
-The structure of the downlaod folders will be like DOWNLOAD_DIRECTORY/AOD_TAG/Nano/YEAR/DATA_TYPE,
+The structure of the downlaod folders will be like DOWNLOAD_DIRECTORY/AOD_TAG/nano/YEAR/DATA_TYPE,
 where AOD_TAG is like NanoAODv5.
 
 * Input files:
@@ -208,63 +208,56 @@ where AOD_TAG is like NanoAODv5.
 * Output files:
   * OUT_PYTHON_SCRIPT
 
+### Converting commands to queue_system format
+
+The below command convert the printed commands to a queue_system format.
+
+    convert_cl_to_jobs_info.py IN_PRINT_COMMAND_SCRIPT OUT_JOB_INFO.json
+
+IN_PRINT_COMMAND_SCRIPT should print the commands to run.
+OUT_JOB_INFO.json is the file which holds the information in the queue_system format
+
+* Input files:
+  * IN_PRINT_COMMAND_SCRIPT
+* Output files:
+  * OUT_JOB_INFO.json
+
+### Auto-submit the jobs
+
+The below command submits jobs and then checks if the job should be re-submitted according to a check script.
+    
+    auto_submit_jobs.py IN_JOB_INFO.json -n NODE_NAME -c CHECK_SCRIPT
+
+IN_JOB_INFO.json is the file which holds the information in the queue_system format.
+An output JOB_INFO json file will be produced with the prefix of 'auto_'
+The CHECK_SCRIPT will receive a compressed string as a argument which holds the job_log and the job_argument.
+The string can be uncompressed using the queue_system.decompress_string. 
+The check script should print [For queue_system] JOB_STATUS
+JOB_STATUS can be 'success', 'fail' or 'to_submit'.
+Look at modules/queue_system/bin/jobscript_check.py for an example.
+
+* Input files:
+  * IN_JOB_INFO.json
+* Output files:
+  * auto_OUT_JOB_INFO.json
+
+### Select jobs to resubmit between failed jobs.
+
+The below script prints info about failed jobs and asks if one wants to resubmit.
+
+    select_resubmit_jobs.py IN_JOB_INFO.json -c CHECK_SCRIPT 
+
+IN_JOB_INFO.json is the file which holds the information in the queue_system format.
+An output JOB_INFO json file will be produced with the prefix of 'resubmit_'
+The CHECK_SCRIPT should be the check script that was used in submitting the jobs.
+ 
+* Input files:
+  * IN_JOB_INFO.json
+* Output files:
+  * resubmit_OUT_JOB_INFO.json
+
 ## Test
 
-One can run ./modules/datasets/test/get_datasets/get_datasets.sh to test the scripts.
+One can run cd modules/datasets/test/get_datasets;./get_datasets.sh to test the scripts.
+One can run cd modules/queue_system/test/datasets;./submit_datasets.sh to test the scripts.
 
-# Lets make clean structure.
-TODO Do data
-
-source set_env.sh
-
-Example
-make_datasets_jsons.py -d nanoaod or update_datasets_jsons.py -d nanoaod
-filter_datasets_jsons.py -d nanoaod
-select_multiple_datasets_jsons.py -d nanoaod
-write_datasets.py -d nanoaod
-make_dataset_files_jsons.py or update_dataset_files_jsons.py
-OPTIONAL write_dataset_files.py
-make_disk_files_jsons.py
-convert_dataset_files_to_cl.py mc /mnt/hadoop/jbkim/Download ./results/cl_dataset_files_info.py
-
-convert_cl_to_jobs_info.py ./results/cl_dataset_files_info.py ./jsons/mc_jobs_info.json
-submit_jobs.py jsons/mc_jobs_info.json -n cms1
-check_jobs.py jsons/submitted_mc_jobs_info.json -c copy_aods_check_entries.py
-select_resubmit_jobs.py jsons/checked_submitted_mc_jobs_info.json -c copy_aods_check_entries.py
-
-auto_submit_jobs.py jsons/submitted_mc_jobs_info.json -c copy_aods_check_entries.py -n cms1
-
-#  write list of files
-
-#./make_datasets_jsons.py -d nanoaod -t mc or ./update_datasets_jsons.py -d nanoaod -t mc
-# 
-#./filter_datasets_jsons.py -d nanoaod -t mc
-#./select_multiple_datasets_jsons.py -d nanoaod -t mc
-#./write_datasets.py -d nanoaod -t mc
-#./make_dataset_files_jsons.py -t mc or update_dataset_files_jsons.py -t mc
-#./convert_dataset_files_to_cl.py ./jsons/mc_dataset_files_info.json /mnt/hadoop/jbkim/Download ./results/cl_dataset_files_info.py
-#
-#./convert_cl_to_jobs_info.py ./results/cl_dataset_files_info.py ./jsons/mc_jobs_info.json
-#./submit_jobs.py jsons/mc_jobs_info.json -n cms1
-#./check_jobs.py jsons/submitted_mc_jobs_info.json -c ./copy_aods_check_entries.py
-#./select_resubmit_jobs.py jsons/checked_submitted_mc_jobs_info.json -c ./copy_aods_check_entries.py
-
-
-#or ./auto_submit_jobs.py jsons/submitted_mc_jobs_info.json -c ./copy_aods_check_entries.py -n cms1
-
-./make_datasets_jsons.py or ./update_datasets_jsons.py
-./filter_datasets_jsons.py
-./select_multiple_datasets_jsons.py
-./write_datasets.py
-./make_dataset_files_jsons.py
-./convert_dataset_files_to_cl.py DATASET_FILES_JSON TARGET_DIRECTORY CL_DATASET_FILES_INFO
-
-./convert_cl_to_jobs_info.py CL_DATASET_FILES_INFO JOBS_INFO
-./submit_jobs JOBS_INFO -n cms1
-# NEED to run in folder that has ./setcmsenv
-./submit_jobs.py jsons/cl_dataset_files_info.py -n cms1
-or
-./auto_submit_jobs.py jsons/cl_dataset_files_info.py -c ./copy_aods_check_entries.py -n cms1
-
-./check_jobs.py jsons/auto_cl_dataset_files_info.py -c ./copy_aods_check_entries.py
-./select_resubmit_jobs.py jsons/checked_auto_cl_dataset_files_info.py -c ./copy_aods_check_entries.py
