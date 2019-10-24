@@ -27,9 +27,9 @@ Run the below commands to get information about the datasets to download.
     make_dataset_files_jsons.py
     make_disk_files_jsons.py
     (optional) write_dataset_files.py
-    convert_dataset_files_to_cl.py mc DOWNLOAD_DIRECTORY ./results/cl_mc_dataset_files.py -s year=2016
-    convert_dataset_files_to_cl.py data DOWNLOAD_DIRECTORY ./results/cl_data_dataset_files.py -s year=2016
-    convert_dataset_files_to_cl.py SIGNAL_NAME DOWNLOAD_DIRECTORY ./results/cl_SIGNAL_NAME_dataset_files.py -s year=2016
+    convert_dataset_files_to_cl.py mc /mnt/hadoop/pico ./results/cl_mc_dataset_files.py -s dataset_year=2016
+    convert_dataset_files_to_cl.py data /mnt/hadoop/pico ./results/cl_data_dataset_files.py -s dataset_year=2016
+    convert_dataset_files_to_cl.py SIGNAL_NAME /mnt/hadoop/pico ./results/cl_SIGNAL_NAME_dataset_files.py -s dataset_year=2016
 
 Setup the cms voms_proxy. Run the below commands to submit to the ucsb job system.
 
@@ -64,9 +64,9 @@ If the meta file is updated run the below commands to update the json files and 
     write_datasets.py
     update_dataset_files_jsons.py
     write_dataset_files.py -ip updated_
-    convert_dataset_files_to_cl.py mc DOWNLOAD_DIRECTORY ./results/cl_mc_dataset_files.py -s year=2016 -if updated_
-    convert_dataset_files_to_cl.py data DOWNLOAD_DIRECTORY ./results/cl_data_dataset_files.py -s year=2016 -if updated_
-    convert_dataset_files_to_cl.py SIGNAL_NAME DOWNLOAD_DIRECTORY ./results/cl_SIGNAL_NAME_dataset_files.py -s year=2016 -if updated_
+    convert_dataset_files_to_cl.py mc DOWNLOAD_DIRECTORY ./results/cl_mc_dataset_files.py -s dataset_year=2016 -if updated_
+    convert_dataset_files_to_cl.py data DOWNLOAD_DIRECTORY ./results/cl_data_dataset_files.py -s dataset_year=2016 -if updated_
+    convert_dataset_files_to_cl.py SIGNAL_NAME DOWNLOAD_DIRECTORY ./results/cl_SIGNAL_NAME_dataset_files.py -s dataset_year=2016 -if updated_
 
 ## (Long) Steps for copying datasets
 
@@ -232,11 +232,11 @@ Can also do a sql search on the datasets to limit the files to be copied with th
 For Mc: filename, path, file_events, file_size, mc_dataset_name, year, data_tier, size, files, events, lumis, mc_dir, year_tag, miniaod_tag, nanoaod_tag, 
 For Data: filename, path, file_events, file_size, stream, year, run_group, data_tier, size, files, events, lumis, mc_dir, year_tag, miniaod_tag, nanoaod_tag, nanoaodsim_tag
 * filename: Filename of the dataset file. Ex) /store/mc/../...
-* path: Dataset name. Ex) /TTJets...
+* dataset_path: Dataset name. Ex) /TTJets...
 * file_events: Number of events in the file
 * file_size: File size of the file
 * mc_dataset_name: The name of the dataset in the meta/mc_dataset_*_names
-* year: year of the dataset Ex) 2016, 2017, 2018
+* dataset_year: year of the dataset Ex) 2016, 2017, 2018
 * data_tier: miniaod or nanoaod
 * size: Total size of the dataset
 * events: Number of events for the dataset
@@ -245,8 +245,8 @@ For Data: filename, path, file_events, file_size, stream, year, run_group, data_
 * year_tag: Tag of the year. Ex) RunIIFalll17
 * miniaod_tag: Tag of the miniaod Ex) MiniAODv2
 * nanoaod_tag: Tag of the nanooad Ex) NanoAODv5 for mc and Nano1June2019 for data
-* stream: Trigger name of the data. Ex) MET
-* run_group: Ex) A
+* dataset_stream: Trigger name of the data. Ex) MET
+* dataset_run_group: Ex) A
 * nanoaodsim_tag: NanoAODv5
 An example of a search string would be
 "year=17 and mc_dir=mc"
