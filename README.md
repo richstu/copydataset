@@ -324,4 +324,4 @@ After modifying submodule code, run the below commands to push changes.
     cd SUBMODULE_DIRECTORY
     git commit -am "COMMENT"
     git pull origin master
-    git push origin master
+    git push origin HEAD:master
