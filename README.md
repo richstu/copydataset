@@ -49,7 +49,7 @@ Resubmit jobs if needed.
     auto_submit_jobs.py ./jsons/resubmit_auto_data_jobs_info.json -n cms1 -c copy_aods_check_entries.py
     auto_submit_jobs.py ./jsons/resubmit_auto_SIGNAL_NAME_jobs_info.json -n cms1 -c copy_aods_check_entries.py
 
-## Steps for copying datasets
+## (Long) Steps for copying datasets
 
 ### Setup meta files.
 
@@ -261,3 +261,11 @@ The CHECK_SCRIPT should be the check script that was used in submitting the jobs
 One can run cd modules/datasets/test/get_datasets;./get_datasets.sh to test the scripts.
 One can run cd modules/queue_system/test/datasets;./submit_datasets.sh to test the scripts.
 
+## Steps for git push with submodules.
+
+After modifying submodule code, run the below commands to push changes.
+
+    cd SUBMODULE_DIRECTORY
+    git commit -am "COMMENT"
+    git pull origin master
+    git push origin master
