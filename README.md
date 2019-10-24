@@ -14,17 +14,22 @@ Run the below command to setup the environment.
 
 ## (Short) Steps for copying datasets
 
-Edit the files in the `meta` directory and run the below commands to get information about the datasets to download.
+Copy one of the meta_* directories to meta. Copy the matching json_* directory to jsons. 
+Make a results directory. Edit the files in the `meta` directory. 
+Run the below commands to get information about the datasets to download.
 
     make_datasets_jsons.py
     filter_datasets_jsons.py
     select_multiple_datasets_jsons.py
     write_datasets.py
+    (optional) write_datasets.py -t mc -y 2016 -op 2016_
+    (optional) write_datasets.py -t data -y 2016 -op 2016_
     make_dataset_files_jsons.py
-    write_dataset_files.py
-    convert_dataset_files_to_cl.py mc DOWNLOAD_DIRECTORY ./results/cl_mc_dataset_files.py
-    convert_dataset_files_to_cl.py data DOWNLOAD_DIRECTORY ./results/cl_data_dataset_files.py
-    convert_dataset_files_to_cl.py SIGNAL_NAME DOWNLOAD_DIRECTORY ./results/cl_SIGNAL_NAME_dataset_files.py
+    make_disk_files_jsons.py
+    (optional) write_dataset_files.py
+    convert_dataset_files_to_cl.py mc DOWNLOAD_DIRECTORY ./results/cl_mc_dataset_files.py -s year=2016
+    convert_dataset_files_to_cl.py data DOWNLOAD_DIRECTORY ./results/cl_data_dataset_files.py -s year=2016
+    convert_dataset_files_to_cl.py SIGNAL_NAME DOWNLOAD_DIRECTORY ./results/cl_SIGNAL_NAME_dataset_files.py -s year=2016
 
 Setup the cms voms_proxy. Run the below commands to submit to the ucsb job system.
 
@@ -48,6 +53,20 @@ Resubmit jobs if needed.
     auto_submit_jobs.py ./jsons/resubmit_auto_mc_jobs_info.json -n cms1 -c copy_aods_check_entries.py
     auto_submit_jobs.py ./jsons/resubmit_auto_data_jobs_info.json -n cms1 -c copy_aods_check_entries.py
     auto_submit_jobs.py ./jsons/resubmit_auto_SIGNAL_NAME_jobs_info.json -n cms1 -c copy_aods_check_entries.py
+
+## (Short) Case of updating the meta file.
+
+If the meta file is updated run the below commands to update the json files and get the commands to download the additional datasets.
+
+    update_datasets_jsons.py
+    filter_datasets_jsons.py -ip updated_
+    select_multiple_datasets_jsons.py
+    write_datasets.py
+    update_dataset_files_jsons.py
+    write_dataset_files.py -ip updated_
+    convert_dataset_files_to_cl.py mc DOWNLOAD_DIRECTORY ./results/cl_mc_dataset_files.py -s year=2016 -if updated_
+    convert_dataset_files_to_cl.py data DOWNLOAD_DIRECTORY ./results/cl_data_dataset_files.py -s year=2016 -if updated_
+    convert_dataset_files_to_cl.py SIGNAL_NAME DOWNLOAD_DIRECTORY ./results/cl_SIGNAL_NAME_dataset_files.py -s year=2016 -if updated_
 
 ## (Long) Steps for copying datasets
 
@@ -170,6 +189,20 @@ One can customize the input and output files using arguments, which can be seen 
   * jsons/mc_dataset_files_info.json
   * jsons/data_dataset_files_info.json
 
+### Get information of files that are on disk
+
+The below command gets information of files that are on disk
+
+    make_disk_files_jsons.py
+
+The file information is stored in a json file.
+One can customize the input and output files using arguments, which can be seen with the argument -h.
+
+* Input files:
+* Output files:
+  * jsons/mc_disk_files.json
+  * jsons/data_disk_files.json
+
 ### (Optional) Write dataset files to a plain text file
 
 The below command writes dataset file paths to a text file.
@@ -195,6 +228,29 @@ DATA_TYPE can be either mc or data or the signal name. DATA_TYPE is used in sett
 DATA_TYPE should also be written in `mc_tag_meta`.
 The structure of the downlaod folders will be like DOWNLOAD_DIRECTORY/AOD_TAG/nano/YEAR/DATA_TYPE,
 where AOD_TAG is like NanoAODv5.
+Can also do a sql search on the datasets to limit the files to be copied with the option -s. Below are the keys that can be used to search.
+For Mc: filename, path, file_events, file_size, mc_dataset_name, year, data_tier, size, files, events, lumis, mc_dir, year_tag, miniaod_tag, nanoaod_tag, 
+For Data: filename, path, file_events, file_size, stream, year, run_group, data_tier, size, files, events, lumis, mc_dir, year_tag, miniaod_tag, nanoaod_tag, nanoaodsim_tag
+* filename: Filename of the dataset file. Ex) /store/mc/../...
+* path: Dataset name. Ex) /TTJets...
+* file_events: Number of events in the file
+* file_size: File size of the file
+* mc_dataset_name: The name of the dataset in the meta/mc_dataset_*_names
+* year: year of the dataset Ex) 2016, 2017, 2018
+* data_tier: miniaod or nanoaod
+* size: Total size of the dataset
+* events: Number of events for the dataset
+* lumis: Number of lumis for the dataset
+* mc_dir: Directory that the files will be downloaded to. Ex) mc
+* year_tag: Tag of the year. Ex) RunIIFalll17
+* miniaod_tag: Tag of the miniaod Ex) MiniAODv2
+* nanoaod_tag: Tag of the nanooad Ex) NanoAODv5 for mc and Nano1June2019 for data
+* stream: Trigger name of the data. Ex) MET
+* run_group: Ex) A
+* nanoaodsim_tag: NanoAODv5
+An example of a search string would be
+"year=17 and mc_dir=mc"
+
 
 * Input files:
   * meta/mc_dataset_common_names
