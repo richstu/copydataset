@@ -26,7 +26,8 @@ Run the below commands to get information about the datasets to download.
     (optional) write_datasets.py -t data -y 2016 -op 2016_
     make_dataset_files_jsons.py
     make_disk_files_jsons.py
-    (optional) write_dataset_files.py
+    (optional) write_dataset_files.py -t mc -s "dataset_year=2016" -op mc_
+    (optional) write_dataset_files.py -t data -s "dataset_year=2016" -op data_
     convert_dataset_files_to_cl.py mc /mnt/hadoop/pico ./results/cl_mc_dataset_files.py -s dataset_year=2016
     convert_dataset_files_to_cl.py data /mnt/hadoop/pico ./results/cl_data_dataset_files.py -s dataset_year=2016
     convert_dataset_files_to_cl.py SIGNAL_NAME /mnt/hadoop/pico ./results/cl_SIGNAL_NAME_dataset_files.py -s dataset_year=2016
@@ -63,10 +64,11 @@ If the meta file is updated run the below commands to update the json files and 
     select_multiple_datasets_jsons.py
     write_datasets.py
     update_dataset_files_jsons.py
-    write_dataset_files.py -ip updated_
-    convert_dataset_files_to_cl.py mc DOWNLOAD_DIRECTORY ./results/cl_mc_dataset_files.py -s dataset_year=2016 -if updated_
-    convert_dataset_files_to_cl.py data DOWNLOAD_DIRECTORY ./results/cl_data_dataset_files.py -s dataset_year=2016 -if updated_
-    convert_dataset_files_to_cl.py SIGNAL_NAME DOWNLOAD_DIRECTORY ./results/cl_SIGNAL_NAME_dataset_files.py -s dataset_year=2016 -if updated_
+    (optional) write_dataset_files.py -t mc -s "dataset_year=2016" -op mc_ -ip updated_
+    (optional) write_dataset_files.py -t data -s "dataset_year=2016" -op data_ -ip updated_
+    convert_dataset_files_to_cl.py mc /mnt/hadoop/pico ./results/cl_mc_dataset_files.py -s dataset_year=2016 -if updated_
+    convert_dataset_files_to_cl.py data /mnt/hadoop/pico ./results/cl_data_dataset_files.py -s dataset_year=2016 -if updated_
+    convert_dataset_files_to_cl.py SIGNAL_NAME /mnt/hadoop/pico ./results/cl_SIGNAL_NAME_dataset_files.py -s dataset_year=2016 -if updated_
 
 ## (Long) Steps for copying datasets
 
