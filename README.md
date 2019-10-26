@@ -327,3 +327,5 @@ After modifying submodule code, run the below commands to push changes.
     git commit -am "COMMENT"
     git pull origin master
     git push origin HEAD:master
+
+# TODO change python to python3
