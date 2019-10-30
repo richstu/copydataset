@@ -11,11 +11,13 @@ Run the below command to setup the git repository.
 Run the below command to setup the environment.
     
     source set_env.sh
+    voms-proxy-init -voms cms -valid 168:0
 
 ## (Short) Steps for copying datasets
 
 Copy one of the meta_* directories to meta. Copy the matching json_* directory to jsons. 
 Make a results directory. Edit the files in the `meta` directory. 
+In the mc_dataset_* files, one can also assign a SIGNAL_NAME to a dataset, which is used to be the directory name for the files.
 Run the below commands to get information about the datasets to download.
 
     make_datasets_jsons.py
@@ -32,7 +34,7 @@ Run the below commands to get information about the datasets to download.
     convert_dataset_files_to_cl.py data /mnt/hadoop/pico ./results/cl_data_dataset_files.py -s dataset_year=2016
     convert_dataset_files_to_cl.py SIGNAL_NAME /mnt/hadoop/pico ./results/cl_SIGNAL_NAME_dataset_files.py -s dataset_year=2016
 
-Setup the cms voms_proxy. Run the below commands to submit to the ucsb job system.
+Run the below commands to submit to the ucsb job system.
 
     convert_cl_to_jobs_info.py ./results/cl_mc_dataset_files.py ./jsons/mc_jobs_info.json
     auto_submit_jobs.py ./jsons/mc_jobs_info.json -n cms1 -c copy_aods_check_entries.py
@@ -327,5 +329,3 @@ After modifying submodule code, run the below commands to push changes.
     git commit -am "COMMENT"
     git pull origin master
     git push origin HEAD:master
-
-# TODO change python to python3

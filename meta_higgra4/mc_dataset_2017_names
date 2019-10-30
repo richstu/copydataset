@@ -1,0 +1,7 @@
+# Dataset filenames for 2017.
+# Once can add a MC_DIR to the dataset, which will be used to set the directory name. 
+# By default the MC_DIR name will be "mc"
+# Example) WH_HToBB_WToLNu_M125 wh
+# This will make a directory called wh
+# Dataset names (mc/signal)
+WHiggs0PMToBB*
