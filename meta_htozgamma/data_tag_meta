@@ -1,0 +1,7 @@
+# Year miniaod_year_tag nano_aod_year_tag streams runs corresponding_nanoaodsim_tag
+2016 17Jul2018 Nano1June2019 MET,SingleElectron,SingleMuon,JetHT B,C,D,E,F,G NanoAODv9
+2016 17Jul2018 Nano1June2019 SingleElectron,SingleMuon,JetHT H NanoAODv9
+2016 17Jul2018 Nano1June2019-v3 MET H NanoAODv9
+2017 31Mar2018 Nano1June2019 MET,SingleElectron,SingleMuon,JetHT B,C,D,E,F NanoAODv9
+2018 17Sep2018 Nano1June2019 MET,EGamma,SingleMuon,JetHT A,B,C NanoAODv9
+2018 PromptReco-v2 Nano1June2019 MET,EGamma,SingleMuon,JetHT D NanoAODv9

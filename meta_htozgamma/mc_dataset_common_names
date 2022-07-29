@@ -1,0 +1,23 @@
+# Dataset filenames for all years (2016, 2017, 2018)
+# Once can add a MC_DIR to the dataset, which will be used to set the directory name. 
+# By default the MC_DIR name will be "mc"
+# Example) WH_HToBB_WToLNu_M125 wh
+# This will make a directory called wh
+# Dataset names (mc/signal)
+#Added Files for AP ZGamma 
+WZG_TuneCP5_13TeV
+ZZGTo4L_TuneCP5_4f_NLO
+ZZGJetsTo4L2Nu_4f_TuneCP5
+WWG_TuneCP5
+WWW_4F_DiLeptonFilter_TuneCP5
+WWW_4F_TuneCP5
+WWZJetsTo4L2Nu_4F_TuneCP5
+WWZ_4F_TuneCP5
+WZZ_TuneCP5
+ZZZ_TuneCP5
+ZGGToLLGG_5f_TuneCP5
+ZGGToNuNuGG_5f_TuneCP5
+WGG_5f_TuneCP5
+ttWJetsToLNu_5f_EWK_TuneCP5
+ttWJets_TuneCP5
+ttZJets_TuneCP5
