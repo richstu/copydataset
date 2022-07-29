@@ -27,8 +27,8 @@ Run the below commands to get information about the datasets to download.
     (optional) write_datasets.py -t data -y 2016 -op 2016_
     make_dataset_files_jsons.py
     make_disk_files_jsons.py
-    (optional) write_dataset_files.py -t mc -s "dataset_year=2016" -op mc_
-    (optional) write_dataset_files.py -t data -s "dataset_year=2016" -op data_
+    (optional) write_dataset_files.py -t mc -s 'dataset_year="2016"' -op mc_
+    (optional) write_dataset_files.py -t data -s 'dataset_year="2016"' -op data_
     convert_dataset_files_to_cl.py mc /mnt/hadoop/pico ./results/cl_mc_dataset_files.py -s 'dataset_year="2016"'
     convert_dataset_files_to_cl.py data /mnt/hadoop/pico ./results/cl_data_dataset_files.py -s 'dataset_year="2016"'
     convert_dataset_files_to_cl.py SIGNAL_NAME /mnt/hadoop/pico ./results/cl_SIGNAL_NAME_dataset_files.py -s 'dataset_year=2016"'
