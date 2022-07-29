@@ -29,12 +29,17 @@ Run the below commands to get information about the datasets to download.
     make_disk_files_jsons.py
     (optional) write_dataset_files.py -t mc -s "dataset_year=2016" -op mc_
     (optional) write_dataset_files.py -t data -s "dataset_year=2016" -op data_
-    convert_dataset_files_to_cl.py mc /mnt/hadoop/pico ./results/cl_mc_dataset_files.py -s dataset_year=2016
-    convert_dataset_files_to_cl.py data /mnt/hadoop/pico ./results/cl_data_dataset_files.py -s dataset_year=2016
-    convert_dataset_files_to_cl.py SIGNAL_NAME /mnt/hadoop/pico ./results/cl_SIGNAL_NAME_dataset_files.py -s dataset_year=2016
+    convert_dataset_files_to_cl.py mc /mnt/hadoop/pico ./results/cl_mc_dataset_files.py -s 'dataset_year="2016"'
+    convert_dataset_files_to_cl.py data /mnt/hadoop/pico ./results/cl_data_dataset_files.py -s 'dataset_year="2016"'
+    convert_dataset_files_to_cl.py SIGNAL_NAME /mnt/hadoop/pico ./results/cl_SIGNAL_NAME_dataset_files.py -s 'dataset_year=2016"'
+
+Now we are ready to submit jobs. But before submitting the jobs, do voms-proxy-init on cms1.
+
+    ssh cms1
+    voms-proxy-init -voms cms -valid 168:0
 
 Run the below commands to submit to the ucsb job system.
-
+  
     convert_cl_to_jobs_info.py ./results/cl_mc_dataset_files.py ./jsons/mc_jobs_info.json
     auto_submit_jobs.py ./jsons/mc_jobs_info.json -n cms1 -c copy_aods_check_entries.py
 
