@@ -6,19 +6,18 @@ Tools to copy datasets. Focused on copying nanoaods to ucsb.
 
 Run the below command to setup the git repository.
 
-    git clone --recurse-submodules https://github.com/richstu/copydataset
+    git clone --recurse-submodules git@github.com:richstu/copydataset.git
 
 Run the below command to setup the environment.
     
     source set_env.sh
-    voms-proxy-init -voms cms -valid 168:0
 
 ## (Short) Steps for copying datasets
 
-Copy one of the meta_* directories to meta. (Not required) Copy the matching json_* directory to jsons. 
-Make a results directory. Edit the files in the `meta` directory. 
-In the mc_dataset_* files, one can also assign a SIGNAL_NAME to a dataset, which is used to be the directory name for the files.
-Run the below commands to get information about the datasets to download.
+Copy one of the meta_* directories to meta. (Not required) Copy the matching json_* directory to jsons.  
+Make a results directory. Edit the files in the `meta` directory.   
+In the mc_dataset_* files, one can also assign a SIGNAL_NAME to a dataset, which is used to be the directory name for the files.  
+Run the below commands to get information about the datasets to download.  
 
     make_datasets_jsons.py
     filter_datasets_jsons.py
