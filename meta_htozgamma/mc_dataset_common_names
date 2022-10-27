@@ -4,36 +4,45 @@
 # Example) WH_HToBB_WToLNu_M125 wh
 # This will make a directory called wh
 # Dataset names (mc/signal)
-#Added Files for AP ZGamma 
-DYJetsToLL_M-50_TuneCP5
+# Main background
+ZGToLLG_01J_5f_TuneCP5
+ZGToLLG_01J_5f_lowMLL_lowGPt_TuneCP5
+DYJetsToLL_M-50_TuneCP5_13TeV-amcatnloFXFX-pythia8
+DYJetsToLL_M-50_TuneCP5_13TeV-madgraphMLM-pythia8
+# VBF background
+LLAJJ_EWK_MLL-50_MJJ-120
+ZGamma2JToGamma2L2J_EWK_MLL-50_MJJ-120_TuneCP5
 EWKZ2Jets_ZToLL_M-50_TuneCP5
+# ttbar background 
+TTGJets_TuneCP5
+TGJets_TuneCP5
 TTJets_SingleLeptFromT_TuneCP5
 TTJets_SingleLeptFromTbar_TuneCP5
 TTJets_DiLept_TuneCP5
-TGJets_TuneCP5
-TTGJets_TuneCP5
 TTTo2L2Nu_TuneCP5
-ttWJetsToLNu_5f_EWK_TuneCP5
-ttWJets_TuneCP5
-ttZJets_TuneCP5
+TT_TuneCP5
+# Minor backgrounds
+ZZ_TuneCP5
 WJetsToLNu_TuneCP5
-WGG_5f_TuneCP5
-WWG_TuneCP5
 WW_TuneCP5
-WWW_4F_DiLeptonFilter_TuneCP5
-WWW_4F_TuneCP5
-WWZ_4F_TuneCP5
-WWZJetsTo4L2Nu_4F_TuneCP5
-WZG_TuneCP5
 WZ_TuneCP5
-WZZ_TuneCP5
-ZGToLLG_01J_5f_TuneCP5
+# Additional backgrounds
 ZGGToLLGG_5f_TuneCP5
 ZGGToNuNuGG_5f_TuneCP5
 ZZGTo4L_TuneCP5
 ZZGJetsTo4L2Nu_4f_TuneCP5
-ZZ_TuneCP5
 ZZZ_TuneCP5
+WWG_TuneCP5
+WWW_4F_DiLeptonFilter_TuneCP5
+WWW_4F_TuneCP5
+WWZ_4F_TuneCP5
+WWZJetsTo4L2Nu_4F_TuneCP5
+WGG_5f_TuneCP5
+WZG_TuneCP5
+WZZ_TuneCP5
+ttWJets_TuneCP5
+ttWJetsToLNu_5f_EWK_TuneCP5
+ttZJets_TuneCP5
 # higgs samples: mumu
 GluGluHToMuMu_M-125_TuneCP5
 ttHToMuMu_M125
@@ -45,6 +54,11 @@ ZH_HToMuMu_ZToAll_M125
 GluGluHToTauTau_M125_TuneCP5
 # higgs samples: gamma gamma
 GluGluHToGG_M125_TuneCP5
+ttHToGG_M125_TuneCP5
+VBFHToGG_M125_TuneCP5
+WminusH_HToGG_WToAll_M125_TuneCP5
+WplusH_HToGG_WToAll_M125_TuneCP5
+ZH_HToGG_ZToAll_M125_TuneCP5
 # higgs samples: WW
 GluGluHToWWTo2L2Nu_M-125_TuneCP5
 # higgs samples: ZZ
