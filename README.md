@@ -43,6 +43,7 @@ Now we are ready to submit jobs. But before submitting the jobs, do voms-proxy-i
 
 Run the below commands to submit to the ucsb job system.
     screen
+    source set_env.sh
   
     convert_cl_to_jobs_info.py ./results/cl_mc_dataset_files.py ./jsons/mc_jobs_info.json
     auto_submit_jobs.py ./jsons/mc_jobs_info.json -n cms1 -c copy_aods_check_entries.py
@@ -77,7 +78,8 @@ If the meta file is updated run the below commands to update the json files and 
     update_datasets_jsons.py
     filter_datasets_jsons.py -ip updated_
     select_multiple_datasets_jsons.py
-    write_datasets.py
+    (optional) write_datasets.py -t mc -y 2016 -op 2016_
+    (optional) write_datasets.py -t data -y 2016 -op 2016_
     update_dataset_files_jsons.py
     (optional) write_dataset_files.py -t mc -s "dataset_year=2016" -op mc_
     (optional) write_dataset_files.py -t data -s "dataset_year=2016" -op data_
