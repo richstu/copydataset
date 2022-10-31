@@ -14,8 +14,9 @@ Run the below command to setup the environment.
 
 ## (Short) Steps for copying datasets
 
-Copy one of the meta_* directories to meta. (Not required: Copy the matching json_* directory to jsons.)  
-Make a results directory. Edit the files in the `meta` directory.   
+Copy one of the meta_* directories to `meta`.   
+Make `jsons` directory or copy the matching json_* directory to `jsons` to use the MC selections that was done before.  
+Make a `results` directory. Edit the files in the `meta` directory.   
 In the mc_dataset_* files, one can also assign a SIGNAL_NAME_DIR to a dataset, which is used to be the directory name for the files.  
 Run the below commands to get information about the datasets to download.  
 
@@ -77,11 +78,11 @@ If the meta file is updated run the below commands to update the json files and 
     select_multiple_datasets_jsons.py
     write_datasets.py
     update_dataset_files_jsons.py
-    (optional) write_dataset_files.py -t mc -s "dataset_year=2016" -op mc_ -ip updated_
-    (optional) write_dataset_files.py -t data -s "dataset_year=2016" -op data_ -ip updated_
-    convert_dataset_files_to_cl.py mc /mnt/hadoop/pico ./results/cl_mc_dataset_files.py -s dataset_year=2016 -if updated_
-    convert_dataset_files_to_cl.py data /mnt/hadoop/pico ./results/cl_data_dataset_files.py -s dataset_year=2016 -if updated_
-    convert_dataset_files_to_cl.py SIGNAL_NAME /mnt/hadoop/pico ./results/cl_SIGNAL_NAME_dataset_files.py -s dataset_year=2016 -if updated_
+    (optional) write_dataset_files.py -t mc -s "dataset_year=2016" -op mc_
+    (optional) write_dataset_files.py -t data -s "dataset_year=2016" -op data_
+    convert_dataset_files_to_cl.py mc /mnt/hadoop/pico ./results/cl_mc_dataset_files.py -s 'dataset_year="2016"' -if updated_
+    convert_dataset_files_to_cl.py data /mnt/hadoop/pico ./results/cl_data_dataset_files.py -s 'dataset_year="2016"' -if updated_
+    convert_dataset_files_to_cl.py SIGNAL_NAME /mnt/hadoop/pico ./results/cl_SIGNAL_NAME_dataset_files.py -s 'dataset_year="2016"' -if updated_
 
 ## (Long) Steps for copying datasets
 

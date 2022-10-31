@@ -10,8 +10,8 @@ ZGToLLG_01J_5f_lowMLL_lowGPt_TuneCP5
 DYJetsToLL_M-50_TuneCP5_13TeV-amcatnloFXFX-pythia8
 DYJetsToLL_M-50_TuneCP5_13TeV-madgraphMLM-pythia8
 # VBF background
-LLAJJ_EWK_MLL-50_MJJ-120
 ZGamma2JToGamma2L2J_EWK_MLL-50_MJJ-120_TuneCP5
+#LLAJJ_EWK_MLL-50_MJJ-120. This will be in ZGamma2JToGamma2L2J_EWK_MLL-50_MJJ-120_TuneCP5.
 EWKZ2Jets_ZToLL_M-50_TuneCP5
 # ttbar background 
 TTGJets_TuneCP5
@@ -27,10 +27,10 @@ WJetsToLNu_TuneCP5
 WW_TuneCP5
 WZ_TuneCP5
 # Additional backgrounds
-ZGGToLLGG_5f_TuneCP5
-ZGGToNuNuGG_5f_TuneCP5
+# ZGGToLLGG_5f_TuneCP5. Included in ZG sample.
+# ZGGToNuNuGG_5f_TuneCP5. Not in HToZGamma becuase no leptons.
 ZZGTo4L_TuneCP5
-ZZGJetsTo4L2Nu_4f_TuneCP5
+# ZZGJetsTo4L2Nu_4f_TuneCP5. This is same as ZZGTo4L_TuneCP5.
 ZZZ_TuneCP5
 WWG_TuneCP5
 WWW_4F_DiLeptonFilter_TuneCP5
@@ -63,16 +63,19 @@ ZH_HToGG_ZToAll_M125_TuneCP5
 GluGluHToWWTo2L2Nu_M-125_TuneCP5
 # higgs samples: ZZ
 GluGluHToZZTo2L2Nu_M125_TuneCP5
-VBF_HToZZTo2L2Nu_M125_TuneCP5
-WminusH_HToZZTo2L2Nu_M125_TuneCP5
-WplusH_HToZZTo2L2Nu_M125_TuneCP5
 GluGluHToZZTo2L2Q_M125_TuneCP5
-VBF_HToZZTo2L2Q_M125_TuneCP5
-WminusH_HToZZTo2L2Q_M125_TuneCP5
-WplusH_HToZZTo2L2Q_M125_TuneCP5
+GluGluHToZZTo4L_M125_TuneCP5
+VBF_HToZZTo2L2X_M125_TuneCP5
+#VBF_HToZZTo2L2Nu_M125_TuneCP5. This will be in VBF_HToZZTo2L2X_M125_TuneCP5.
+#VBF_HToZZTo2L2Q_M125_TuneCP5. This will be in VBF_HToZZTo2L2X_M125_TuneCP5.
+WminusH_HToZZTo2L2X_M125_TuneCP5
+#WminusH_HToZZTo2L2Q_M125_TuneCP5. This will be in WminusH_HToZZTo2L2X_M125_TuneCP5.
+#WminusH_HToZZTo2L2Nu_M125_TuneCP5. This will be in WminusH_HToZZTo2L2X_M125_TuneCP5.
+WplusH_HToZZTo2L2X_M125_TuneCP5
+#WplusH_HToZZTo2L2Nu_M125_TuneCP5. This will be in WplusH_HToZZTo2L2X_M125_TuneCP5.
+#WplusH_HToZZTo2L2Q_M125_TuneCP5. This will be in WplusH_HToZZTo2L2X_M125_TuneCP5.
 ZH_HToZZ_2LFilter_M125_TuneCP5
 ttH_HToZZ_2LOSSFFilter_M125_TuneCP5
-GluGluHToZZTo4L_M125_TuneCP5
 # higgs samples: Zgamma
 GluGluHToZG_ZToLL_M-120_TuneCP5
 GluGluHToZG_ZToLL_M-125_TuneCP5
