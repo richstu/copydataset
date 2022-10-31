@@ -42,6 +42,7 @@ Now we are ready to submit jobs. But before submitting the jobs, do voms-proxy-i
     voms-proxy-init -voms cms -valid 168:0
 
 Run the below commands to submit to the ucsb job system.
+    screen
   
     convert_cl_to_jobs_info.py ./results/cl_mc_dataset_files.py ./jsons/mc_jobs_info.json
     auto_submit_jobs.py ./jsons/mc_jobs_info.json -n cms1 -c copy_aods_check_entries.py
