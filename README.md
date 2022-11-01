@@ -41,6 +41,7 @@ Now we are ready to submit jobs. But before submitting the jobs, do voms-proxy-i
     ssh cms1
     voms-proxy-init -voms cms -valid 168:0
 
+Make sure you have write permissions to the target folder. Ex) /net/cms17/cms17r0/pico/NanoAODv9/nano/20XX/mc, ...
 Run the below commands to submit to the ucsb job system.
     screen
     source set_env.sh
