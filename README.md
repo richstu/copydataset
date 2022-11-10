@@ -14,6 +14,7 @@ Run the below command to setup the environment.
 
 ## (Short) Steps for copying datasets
 
+Note: Need to make json files using cc7, because dasgoclient doesn't work well with SL6.  
 Copy one of the meta_* directories to `meta`.   
 Make `jsons` directory or copy the matching json_* directory to `jsons` to use the MC selections that was done before.  
 Make a `results` directory. Edit the files in the `meta` directory.   
