@@ -29,8 +29,8 @@ Run the below commands to get information about the datasets to download.
     (optional) write_datasets.py -t data -y 2016 -op 2016_
     make_dataset_files_jsons.py
     (optional) make_disk_files_jsons.py
-    (optional) write_dataset_files.py -t mc -s 'dataset_year="2016"' -op mc_
-    (optional) write_dataset_files.py -t data -s 'dataset_year="2016"' -op data_
+    (optional) write_dataset_files.py -t mc -s 'dataset_year="2016"' -op mc_2016_
+    (optional) write_dataset_files.py -t data -s 'dataset_year="2016"' -op data_2016_
     # Need to split by year due to writing into different folders by year
     # If make_disk_files_jsons.py is ran, convert_dataset_files_to_cl.py uses results and and does not download files that are on disk.
     convert_dataset_files_to_cl.py mc /mnt/hadoop/pico ./results/cl_mc_dataset_files_2016.py -s 'dataset_year="2016"'
@@ -44,14 +44,15 @@ Now we are ready to submit jobs. But before submitting the jobs, do voms-proxy-i
 
 Make sure you have write permissions to the target folder. Ex) /net/cms17/cms17r0/pico/NanoAODv9/nano/20XX/mc, ...
 Run the below commands to submit to the ucsb job system.
+    ssh cms29
     screen
     source set_env.sh
   
     convert_cl_to_jobs_info.py ./results/cl_mc_dataset_files.py ./jsons/mc_jobs_info.json
     auto_submit_jobs.py ./jsons/mc_jobs_info.json -n cms1 -c copy_aods_check_entries.py
 
-    convert_cl_to_jobs_info.py ./results/cl_data_dataset_files.py ./jsons/data_jobs_info.json
-    auto_submit_jobs.py ./jsons/data_jobs_info.json -n cms1 -c copy_aods_check_entries.py
+    convert_cl_to_jobs_info.py ./results/cl_data_dataset_files_2016.py ./jsons/data_2016_jobs_info.json
+    auto_submit_jobs.py ./jsons/data_2016_jobs_info.json -n cms1 -c copy_aods_check_entries.py
 
     convert_cl_to_jobs_info.py ./results/cl_SIGNAL_NAME_dataset_files.py ./jsons/SIGNAL_NAME_jobs_info.json
     auto_submit_jobs.py ./jsons/SIGNAL_NAME_jobs_info.json -n cms1 -c copy_aods_check_entries.py
