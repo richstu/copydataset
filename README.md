@@ -29,33 +29,31 @@ Run the below commands to get information about the datasets to download.
     (optional) write_datasets.py -t data -y 2016 -op 2016_
     make_dataset_files_jsons.py
     (optional) make_disk_files_jsons.py
-    (optional) write_dataset_files.py -t mc -s 'dataset_year="2016"' -op mc_2016_
-    (optional) write_dataset_files.py -t data -s 'dataset_year="2016"' -op data_2016_
+    (optional) write_dataset_files.py -t mc -s 'dataset_year="2016"' -op 2016_mc_
+    (optional) write_dataset_files.py -t data -s 'dataset_year="2016"' -op 2016_data_
     # Need to split by year due to writing into different folders by year
     # If make_disk_files_jsons.py is ran, convert_dataset_files_to_cl.py uses results and and does not download files that are on disk.
-    convert_dataset_files_to_cl.py mc /mnt/hadoop/pico ./results/cl_mc_dataset_files_2016.py -s 'dataset_year="2016"'
-    convert_dataset_files_to_cl.py data /mnt/hadoop/pico ./results/cl_data_dataset_files_2016.py -s 'dataset_year="2016"'
-    convert_dataset_files_to_cl.py SIGNAL_NAME_DIR /mnt/hadoop/pico ./results/cl_SIGNAL_NAME_DIR_dataset_files.py_2016 -s 'dataset_year="2016"'
+    convert_dataset_files_to_cl.py mc /net/cms11/cms11r0/pico ./results/cl_mc_dataset_files_2016.py -s 'dataset_year="2016"'
+    convert_dataset_files_to_cl.py data /net/cms11/cms11r0/pico ./results/cl_data_dataset_files_2016.py -s 'dataset_year="2016"'
+    convert_dataset_files_to_cl.py SIGNAL_NAME_DIR /net/cms11/cms11r0/pico ./results/cl_SIGNAL_NAME_DIR_dataset_files.py_2016 -s 'dataset_year="2016"'
 
-Now we are ready to submit jobs. But before submitting the jobs, do voms-proxy-init on cms1.
+Now we are ready to submit jobs. But before submitting the jobs, do voms-proxy-init
 
-    ssh cms1
-    voms-proxy-init -voms cms -valid 168:0
+    voms-proxy-init --voms cms --out voms_proxy.txt -valid 172:0
 
-Make sure you have write permissions to the target folder. Ex) /net/cms17/cms17r0/pico/NanoAODv9/nano/20XX/mc, ...
+Make sure you have write permissions to the target folder. Ex) /net/cms11/cms11r0/pico/NanoAODv9/nano/20XX/mc, ...
 Run the below commands to submit to the ucsb job system.
-    ssh cms29
     screen
     source set_env.sh
   
-    convert_cl_to_jobs_info.py ./results/cl_mc_dataset_files.py ./jsons/mc_jobs_info.json
-    auto_submit_jobs.py ./jsons/mc_jobs_info.json -n cms1 -c copy_aods_check_entries.py
+    convert_cl_to_jobs_info.py ./results/cl_mc_dataset_files_2016.py ./jsons/mc_jobs_info_2016.json
+    auto_submit_jobs.py ./jsons/mc_jobs_info_2016.json -n cms11 -r 64 -c copy_aods_check_entries.py
 
-    convert_cl_to_jobs_info.py ./results/cl_data_dataset_files_2016.py ./jsons/data_2016_jobs_info.json
-    auto_submit_jobs.py ./jsons/data_2016_jobs_info.json -n cms1 -c copy_aods_check_entries.py
+    convert_cl_to_jobs_info.py ./results/cl_data_dataset_files_2016.py ./jsons/data_jobs_info_2016.json
+    auto_submit_jobs.py ./jsons/data_2016_jobs_info_2016.json -n cms11 -r 64 -c copy_aods_check_entries.py
 
-    convert_cl_to_jobs_info.py ./results/cl_SIGNAL_NAME_dataset_files.py ./jsons/SIGNAL_NAME_jobs_info.json
-    auto_submit_jobs.py ./jsons/SIGNAL_NAME_jobs_info.json -n cms1 -c copy_aods_check_entries.py
+    convert_cl_to_jobs_info.py ./results/cl_SIGNAL_NAME_dataset_files_2016.py ./jsons/SIGNAL_NAME_jobs_info_2016.json
+    auto_submit_jobs.py ./jsons/SIGNAL_NAME_jobs_info_2016.json -n cms11 -r 64 -c copy_aods_check_entries.py
 
 In case checking jobs needs to be redone
     
@@ -69,9 +67,9 @@ Check reason of failed jobs and set status submit again for failed jobs.
 
 Resubmit jobs if needed.
 
-    auto_submit_jobs.py ./jsons/resubmit_auto_mc_jobs_info.json -n cms1 -c copy_aods_check_entries.py
-    auto_submit_jobs.py ./jsons/resubmit_auto_data_jobs_info.json -n cms1 -c copy_aods_check_entries.py
-    auto_submit_jobs.py ./jsons/resubmit_auto_SIGNAL_NAME_jobs_info.json -n cms1 -c copy_aods_check_entries.py
+    auto_submit_jobs.py ./jsons/resubmit_auto_mc_jobs_info.json -n cms11 -r 64 -c copy_aods_check_entries.py
+    auto_submit_jobs.py ./jsons/resubmit_auto_data_jobs_info.json -n cms11 -r 64 -c copy_aods_check_entries.py
+    auto_submit_jobs.py ./jsons/resubmit_auto_SIGNAL_NAME_jobs_info.json -n cms11 -r 64 -c copy_aods_check_entries.py
 
 ## (Short) Case of updating the meta file.
 
@@ -86,6 +84,7 @@ If the meta file is updated run the below commands to update the json files and 
     update_dataset_files_jsons.py
     (optional) write_dataset_files.py -t mc -s "dataset_year=2016" -op mc_
     (optional) write_dataset_files.py -t data -s "dataset_year=2016" -op data_
+    make_disk_files_jsons.py
     convert_dataset_files_to_cl.py mc /mnt/hadoop/pico ./results/cl_mc_dataset_files.py -s 'dataset_year="2016"' -if updated_
     convert_dataset_files_to_cl.py data /mnt/hadoop/pico ./results/cl_data_dataset_files.py -s 'dataset_year="2016"' -if updated_
     convert_dataset_files_to_cl.py SIGNAL_NAME /mnt/hadoop/pico ./results/cl_SIGNAL_NAME_dataset_files.py -s 'dataset_year="2016"' -if updated_
