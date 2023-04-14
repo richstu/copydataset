@@ -1,0 +1,19 @@
+# Year miniaod_year_tag nano_aod_year_tag streams runs corresponding_nanoaodsim_tag
+#2016 UL2016_MiniAODv2 UL2016_MiniAODv2_NanoAODv9 DoubleEG,DoubleMuon,SingleMuon,SingleElectron,MuonEG,MET,JetHT B,C,D,E,F,G,H NanoAODv9
+#2017 UL2017_MiniAODv2 UL2017_MiniAODv2_NanoAODv9 DoubleEG,DoubleMuon,SingleMuon,SingleElectron,MuonEG,MET,JetHT B,C,D,E,F NanoAODv9
+#2018 UL2018_MiniAODv2 UL2018_MiniAODv2_NanoAODv9 EGamma,DoubleMuon,SingleMuon,MuonEG,MET,JetHT A,B,C,D NanoAODv9
+2016 17Jul2018 02Apr2020_ver2 MET,SingleElectron,SingleMuon,JetHT B NanoAODv7
+2016 17Jul2018 02Apr2020 MET,SingleElectron,SingleMuon,JetHT C,D,E,F,G NanoAODv7
+2016 17Jul2018 02Apr2020 SingleElectron,SingleMuon,JetHT H NanoAODv7
+2016 17Jul2018 02Apr2020-v2 MET H NanoAODv7
+2017 31Mar2018 02Apr2020 MET,SingleElectron,SingleMuon,JetHT B,C,D,E,F NanoAODv7
+2018 17Sep2018 02Apr2020 MET,EGamma,SingleMuon,JetHT A,B,C NanoAODv7
+# Take v1 and v2 because some datasets only have v1
+2018 PromptReco-v2 02Apr2020 MET,EGamma,SingleMuon,JetHT D NanoAODv7
+# For ZGamma
+2016 17Jul2018 02Apr2020_ver2 DoubleEG,DoubleMuon,MuonEG B NanoAODv7
+2016 17Jul2018 02Apr2020 DoubleEG,DoubleMuon,MuonEG C,D,E,F,G,H NanoAODv7
+2017 31Mar2018 02Apr2020 DoubleEG,DoubleMuon,MuonEG B,C,D,E,F NanoAODv7
+2018 17Sep2018 02Apr2020 DoubleMuon,MuonEG A,B,C NanoAODv7
+# Take v1 and v2 because some datasets only have v1
+2018 PromptReco-v2 02Apr2020 DoubleMuon,MuonEG D NanoAODv7

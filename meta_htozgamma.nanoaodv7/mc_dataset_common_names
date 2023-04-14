@@ -1,0 +1,44 @@
+# Dataset filenames for all years (2016, 2017, 2018)
+# Once can add a MC_DIR to the dataset, which will be used to set the directory name. 
+# By default the MC_DIR name will be "mc"
+# Example) WH_HToBB_WToLNu_M125 wh
+# This will make a directory called wh
+# Dataset names (mc/signal)
+# Main background
+ZGToLLG_01J_5f_Tune
+DYJetsToLL_M-50_Tune
+# VBF background
+EWKZ2Jets_ZToLL_M-50
+# ttbar background 
+TTGJets_Tune
+TGJets_Tune
+TTJets_SingleLeptFromT_Tune
+TTJets_SingleLeptFromTbar_Tune
+TTJets_DiLept_Tune
+# Minor backgrounds
+ZZ_Tune
+WJetsToLNu_Tune
+WW_Tune
+WZ_Tune
+# Additional backgrounds
+ttWJets
+ttZJets
+# higgs samples: Zgamma
+GluGluHToZG*_M-120
+GluGluHToZG*_M-125
+GluGluHToZG*_M-130
+ttHToZG_M120
+ttHToZG_M125
+ttHToZG_M130
+VBFHToZG*_M-120
+VBFHToZG*_M-125
+VBFHToZG*_M-130
+WplusH_HToZG*_M120
+WplusH_HToZG*_M125
+WplusH_HToZG*_M130
+WminusH_HToZG*_M120
+WminusH_HToZG*_M125
+WminusH_HToZG*_M130
+ZH*_HToZG*_M*120
+ZH*_HToZG*_M*125
+ZH*_HToZG*_M*130
