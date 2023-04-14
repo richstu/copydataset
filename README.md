@@ -42,6 +42,7 @@ Now we are ready to submit jobs. But before submitting the jobs, do voms-proxy-i
     voms-proxy-init --voms cms --out voms_proxy.txt -valid 172:0
 
 Make sure you have write permissions to the target folder. Ex) /net/cms11/cms11r0/pico/NanoAODv9/nano/20XX/mc, ...
+Also make sure you have a logs folder.
 Run the below commands to submit to the ucsb job system.
     screen
     source set_env.sh
