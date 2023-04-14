@@ -20,7 +20,9 @@ TTJets_SingleLeptFromT_TuneCP5
 TTJets_SingleLeptFromTbar_TuneCP5
 TTJets_DiLept_TuneCP5
 TTTo2L2Nu_TuneCP5
-TT_TuneCP5
+TTJets_TuneCP5_13TeV-amcatnloFXFX-pythia8
+TTJets_TuneCP5_13TeV-madgraphMLM-pythia8
+# TT_TuneCP5 -> This doesn't exist
 # Minor backgrounds
 ZZ_TuneCP5
 WJetsToLNu_TuneCP5
@@ -54,7 +56,8 @@ ZH_HToMuMu_ZToAll_M125
 GluGluHToTauTau_M125_TuneCP5
 # higgs samples: gamma gamma
 GluGluHToGG_M125_TuneCP5
-ttHToGG_M125_TuneCP5
+ttHJetToGG_M125_TuneCP5
+#ttHToGG_M125_TuneCP5 ->< This doesn't exist
 VBFHToGG_M125_TuneCP5
 WminusH_HToGG_WToAll_M125_TuneCP5
 WplusH_HToGG_WToAll_M125_TuneCP5
@@ -83,15 +86,19 @@ GluGluHToZG_ZToLL_M-130_TuneCP5
 ttHToZG_M120_TuneCP5
 ttHToZG_M125_TuneCP5
 ttHToZG_M130_TuneCP5
+ttHToZG_ZToLL_M-125_TuneCP5
 VBFHToZG_ZToLL_M-120_TuneCP5
 VBFHToZG_ZToLL_M-125_TuneCP5
 VBFHToZG_ZToLL_M-130_TuneCP5
 WminusH_HToZG_WToAll_M-120_TuneCP5
 WminusH_HToZG_WToAll_M-125_TuneCP5
 WminusH_HToZG_WToAll_M-130_TuneCP5
+WminusH_HToZG_WToAll_ZToLL_M-125_TuneCP5
 WplusH_HToZG_WToAll_M-120_TuneCP5
 WplusH_HToZG_WToAll_M-125_TuneCP5
 WplusH_HToZG_WToAll_M-130_TuneCP5
+WplusH_HToZG_WToAll_ZToLL_M-125_TuneCP5
 ZH_HToZG_ZToAll_M-120_TuneCP5
 ZH_HToZG_ZToAll_M-125_TuneCP5
 ZH_HToZG_ZToAll_M-130_TuneCP5
+ZH_HToZG_ZToAll_ZToLL_M-125_TuneCP5

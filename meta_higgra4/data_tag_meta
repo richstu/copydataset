@@ -1,7 +1,17 @@
 # Year miniaod_year_tag nano_aod_year_tag streams runs corresponding_nanoaodsim_tag
-2016 17Jul2018 Nano1June2019 MET,SingleElectron,SingleMuon,JetHT B,C,D,E,F,G NanoAODv5
-2016 17Jul2018 Nano1June2019 SingleElectron,SingleMuon,JetHT H NanoAODv5
-2016 17Jul2018 Nano1June2019-v3 MET H NanoAODv5
-2017 31Mar2018 Nano1June2019 MET,SingleElectron,SingleMuon,JetHT B,C,D,E,F NanoAODv5
-2018 17Sep2018 Nano1June2019 MET,EGamma,SingleMuon,JetHT A,B,C NanoAODv5
-2018 PromptReco-v2 Nano1June2019 MET,EGamma,SingleMuon,JetHT D NanoAODv5
+# Nano1June2019_ver1 B is not in the golden json
+2016 17Jul2018 02Apr2020_ver2 MET,SingleElectron,SingleMuon,JetHT B NanoAODv7
+2016 17Jul2018 02Apr2020 MET,SingleElectron,SingleMuon,JetHT C,D,E,F,G NanoAODv7
+2016 17Jul2018 02Apr2020 SingleElectron,SingleMuon,JetHT H NanoAODv7
+2016 17Jul2018 02Apr2020-v2 MET H NanoAODv7
+2017 31Mar2018 02Apr2020 MET,SingleElectron,SingleMuon,JetHT B,C,D,E,F NanoAODv7
+2018 17Sep2018 02Apr2020 MET,EGamma,SingleMuon,JetHT A,B,C NanoAODv7
+# Take v1 and v2 because some datasets only have v1
+2018 PromptReco-v2 02Apr2020 MET,EGamma,SingleMuon,JetHT D NanoAODv7
+# For ZGamma
+2016 17Jul2018 02Apr2020_ver2 DoubleEG,DoubleMuon B NanoAODv7
+2016 17Jul2018 02Apr2020 DoubleEG,DoubleMuon C,D,E,F,G,H NanoAODv7
+2017 31Mar2018 02Apr2020 DoubleEG,DoubleMuon B,C,D,E,F NanoAODv7
+2018 17Sep2018 02Apr2020 DoubleMuon A,B,C NanoAODv7
+# Take v1 and v2 because some datasets only have v1
+2018 PromptReco-v2 02Apr2020 DoubleMuon D NanoAODv7

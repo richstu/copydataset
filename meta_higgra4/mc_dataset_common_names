@@ -1,5 +1,5 @@
 # Dataset filenames for all years (2016, 2017, 2018)
-# Once can add a MC_DIR to the dataset, which will be used to set the directory name. 
+# One can add a MC_DIR to the dataset, which will be used to set the directory name. 
 # By default the MC_DIR name will be "mc"
 # Example) WH_HToBB_WToLNu_M125 wh
 # This will make a directory called wh
@@ -70,4 +70,24 @@ WWToLNuQQ
 ZZ_Tune
 #WH_HToBB_WToLNu_M125 #Moved to 2016 names. Should be WHiggs0PMToBB* in 2017,2018.
 ZH_HToBB_ZToNuNu_M125
-SMS-TChiHH_HToBB_HToBB TChiHH_HToBB_HToBB_unsplit
+SMS-TChiHH_HToBB_HToBB_Tune SMS-TChiHH_2D_unsplit
+SMS-TChiHH_HToBB_HToBB_2D SMS-TChiHH_2D_unsplit
+SMS-T5qqqqZH_HToBB-mGluino-1000to1300-mLSP0 SMS-T5qqqqZH_unsplit
+SMS-T5qqqqZH_HToBB-mGluino-1350to1600-mLSP0 SMS-T5qqqqZH_unsplit
+SMS-T5qqqqZH_HToBB-mGluino-1650to1850-mLSP0 SMS-T5qqqqZH_unsplit
+SMS-T5qqqqZH_HToBB-mGluino-1900to2100-mLSP0 SMS-T5qqqqZH_unsplit
+SMS-T5qqqqZH_HToBB-mGluino-2150to2350-mLSP0 SMS-T5qqqqZH_unsplit
+SMS-T5qqqqZH_HToBB-mGluino-2400to2600-mLSP0 SMS-T5qqqqZH_unsplit
+SMS-T5qqqqZH_HToBB-mN2 SMS-T5qqqqZH_unsplit
+# Special FullSim
+SMS-T5qqqqZH-mGluino-1000to2500 SMS-T5qqqqZH_FullSim_unsplit
+# For special FastSim 2016
+TTJets_SingleLeptFromT_TuneCUETP8M1 mc_FastSim
+TTJets_SingleLeptFromTbar_TuneCUETP8M1 mc_FastSim
+# For special FastSim 2017, 2018
+TTJets_SingleLeptFromT_TuneCP2 mc_FastSim
+TTJets_SingleLeptFromTbar_TuneCP2 mc_FastSim
+# Higgsino HToAll
+SMS-TChiHH_Tune SMS-TChiHH_HToAll_unsplit
+SMS-T5qqqqHH_mGl SMS-T5qqqqHH_HToAll_unsplit
+SMS-TChiHZ_Tune SMS-TChiHZ_HToAll_unsplit
