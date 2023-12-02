@@ -46,6 +46,8 @@ Also make sure you have a logs folder.
 Run the below commands to submit to the ucsb job system.
     screen
     source set_env.sh
+
+    mkdir logs
   
     convert_cl_to_jobs_info.py ./results/cl_mc_dataset_files_2016.py ./jsons/mc_jobs_info_2016.json
     auto_submit_jobs.py ./jsons/mc_jobs_info_2016.json -n cms11 -r 64 -c copy_aods_check_entries.py
