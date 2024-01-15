@@ -53,7 +53,7 @@ Run the below commands to submit to the ucsb job system.
     auto_submit_jobs.py ./jsons/mc_jobs_info_2016.json -n cms11 -r 64 -c copy_aods_check_entries.py
 
     convert_cl_to_jobs_info.py ./results/cl_data_dataset_files_2016.py ./jsons/data_jobs_info_2016.json
-    auto_submit_jobs.py ./jsons/data_2016_jobs_info_2016.json -n cms11 -r 64 -c copy_aods_check_entries.py
+    auto_submit_jobs.py ./jsons/data_jobs_info_2016.json -n cms11 -r 64 -c copy_aods_check_entries.py
 
     convert_cl_to_jobs_info.py ./results/cl_SIGNAL_NAME_dataset_files_2016.py ./jsons/SIGNAL_NAME_jobs_info_2016.json
     auto_submit_jobs.py ./jsons/SIGNAL_NAME_jobs_info_2016.json -n cms11 -r 64 -c copy_aods_check_entries.py
