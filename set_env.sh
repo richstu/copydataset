@@ -16,6 +16,7 @@ fi
 eval `scramv1 runtime -sh`
 cd -
 
+voms-proxy-init -voms cms -valid 168:0
 voms-proxy-init -voms cms -valid 168:0 --out $(pwd)/voms_proxy.txt
 
 # Setup batch
