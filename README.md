@@ -8,6 +8,10 @@ Run the below command to setup the git repository.
 
     git clone --recurse-submodules git@github.com:richstu/copydataset.git
 
+If did not do `recurse-submodules`
+
+    git submodule update --init --remote --recursive
+
 Run the below command to setup the environment.
     
     source set_env.sh
@@ -15,8 +19,8 @@ Run the below command to setup the environment.
 ## (Short) Steps for copying datasets
 
 Note: Need to make json files using cc7, because dasgoclient doesn't work well with SL6.  
-Copy one of the meta_* directories to `meta`.   
-Make `jsons` directory or copy the matching json_* directory to `jsons` to use the MC selections that was done before.  
+Link one of the meta_* directories to `meta`.   
+Make `jsons` directory or Link the matching json_* directory to `jsons` to use the MC selections that was done before.  
 Make a `results` directory. Edit the files in the `meta` directory.   
 In the mc_dataset_* files, one can also assign a SIGNAL_NAME_DIR to a dataset, which is used to be the directory name for the files.  
 Run the below commands to get information about the datasets to download.  
@@ -58,6 +62,9 @@ Run the below commands to submit to the ucsb job system.
     convert_cl_to_jobs_info.py ./results/cl_SIGNAL_NAME_dataset_files_2016.py ./jsons/SIGNAL_NAME_jobs_info_2016.json
     auto_submit_jobs.py ./jsons/SIGNAL_NAME_jobs_info_2016.json -n cms11 -r 64 -c copy_aods_check_entries.py
 
+    convert_cls_to_jobs_info.py -c ./results/cl_mc_dataset_files_2016APV.py ./results/cl_mc_dataset_files_2017.py ./results/cl_mc_dataset_files_2018.py -j  ./jsons/mc_jobs_info_2016APV20172018.json
+    auto_submit_jobs.py ./jsons/mc_jobs_info_2016APV20172018.json -n cms11 -r 64 -m 20 -c copy_aods_check_entries.py
+
 In case checking jobs needs to be redone
     
     check_jobs.py jsons/auto_mc_jobs_info.json -o jsons/check_auto_mc_jobs_info.json -c copy_aods_check_entries.py
@@ -70,9 +77,9 @@ Check reason of failed jobs and set status submit again for failed jobs.
 
 Resubmit jobs if needed.
 
-    auto_submit_jobs.py ./jsons/resubmit_auto_mc_jobs_info.json -n cms11 -r 64 -c copy_aods_check_entries.py
-    auto_submit_jobs.py ./jsons/resubmit_auto_data_jobs_info.json -n cms11 -r 64 -c copy_aods_check_entries.py
-    auto_submit_jobs.py ./jsons/resubmit_auto_SIGNAL_NAME_jobs_info.json -n cms11 -r 64 -c copy_aods_check_entries.py
+    auto_submit_jobs.py ./jsons/resubmit_auto_mc_jobs_info.json -n cms11 -r 64 -m 20 -c copy_aods_check_entries.py
+    auto_submit_jobs.py ./jsons/resubmit_auto_data_jobs_info.json -n cms11 -r 64 -m 20 -c copy_aods_check_entries.py
+    auto_submit_jobs.py ./jsons/resubmit_auto_SIGNAL_NAME_jobs_info.json -n cms11 -r 64 -m 20 -c copy_aods_check_entries.py
 
 ## (Short) Case of updating the meta file.
 
@@ -82,6 +89,7 @@ If the meta file is updated run the below commands to update the json files and 
     update_datasets_jsons.py
     filter_datasets_jsons.py -ip updated_
     select_multiple_datasets_jsons.py
+    write_datasets.py
     (optional) write_datasets.py -t mc -y 2016 -op 2016_
     (optional) write_datasets.py -t data -y 2016 -op 2016_
     update_dataset_files_jsons.py
@@ -91,6 +99,19 @@ If the meta file is updated run the below commands to update the json files and 
     convert_dataset_files_to_cl.py mc /mnt/hadoop/pico ./results/cl_mc_dataset_files.py -s 'dataset_year="2016"' -if updated_
     convert_dataset_files_to_cl.py data /mnt/hadoop/pico ./results/cl_data_dataset_files.py -s 'dataset_year="2016"' -if updated_
     convert_dataset_files_to_cl.py SIGNAL_NAME /mnt/hadoop/pico ./results/cl_SIGNAL_NAME_dataset_files.py -s 'dataset_year="2016"' -if updated_
+
+## Alternative way to download files
+    
+    voms-proxy-init -voms cms -valid 168:0
+    source /cvmfs/cms.cern.ch/cmsset_default.sh
+    source /cvmfs/cms.cern.ch/rucio/setup-py3.sh
+    export RUCIO_ACCOUNT=jaebak
+    rucio download --ndownloader=1 cms:/store/...
+
+## Checking file status
+
+    crab checkfile --lfn /store/...
+    
 
 ## (Long) Steps for copying datasets
 

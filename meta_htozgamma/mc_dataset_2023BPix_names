@@ -4,6 +4,7 @@
 # Example) WH_HToBB_WToLNu_M125 wh
 # This will make a directory called wh
 # Dataset names (mc/signal)
-GluGluHtoGG_M-125_TuneCP5_13p6TeV
-VBFHto2Mu_M-125_TuneCP5_withDipoleRecoil_13p6TeV
-ZG2JtoG2L2J_EWK_MLL-50_MJJ-120_TuneCP5_withDipoleRecoil_13p6TeV
+# H To GG
+GluGluHToGG_M-125_TuneCP5_13p6TeV
+VBFHto2Mu_M-125_TuneCP5_13p6TeV
+ZG2JtoG2L2J_EWK_MLL-50_MJJ-120_TuneCP5_13p6TeV

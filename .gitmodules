@@ -7,3 +7,4 @@
 [submodule "modules/queue_system"]
 	path = modules/queue_system
 	url = git@github.com:richstu/queue_system.git
+    branch = cc7

@@ -1,74 +1,10 @@
-# Dataset filenames for 2022.
+# Dataset filenames
 # Once can add a MC_DIR to the dataset, which will be used to set the directory name. 
 # By default the MC_DIR name will be "mc"
 # Example) WH_HToBB_WToLNu_M125 wh
 # This will make a directory called wh
 # Dataset names (mc/signal)
-# WJet
-WtoLNu-2Jets_TuneCP5_13p6TeV
-# ZJet
-DYto2L-2Jets_MLL-50_TuneCP5_13p6TeV
-DYJetsToLL_M-50_TuneCP5_13p6TeV
-DYGto2LG-1Jets_MLL-50_PTG-10to50_TuneCP5_13p6TeV
-DYGto2LG-1Jets_MLL-50_PTG-50to100_TuneCP5_13p6TeV
-DYGto2LG-1Jets_MLL-50_PTG-100to200_TuneCP5_13p6TeV
-DYGto2LG-1Jets_MLL-50_PTG-200_TuneCP5_13p6TeV
-# VBS ZJet
-ZG2JtoG2L2J_EWK_MLL-50_MJJ-120_TuneCP5_withDipoleRecoil_13p6TeV
-# WW/WZ/ZZ
-WW_TuneCP5_13p6TeV
-WZ_TuneCP5_13p6TeV
-WZ_TuneCP5_13p6TeV
-WZGtoLNuZG_TuneCP5_13p6TeV
-ZZ_TuneCP5_13p6TeV
-WWW_4F_TuneCP5_13p6TeV
-WWZ_4F_TuneCP5_13p6TeV
-WZZ_TuneCP5_13p6TeV
-ZZZ_TuneCP5_13p6TeV
-# ST
-TWminustoLNu2Q_TuneCP5_13p6TeV
-TWminusto2L2Nu_TuneCP5_13p6TeV
-TbarWplustoLNu2Q_TuneCP5_13p6TeV
-TbarWplusto2L2Nu_TuneCP5_13p6TeV
-TtoLNu2Q_TuneCP5_13p6TeV
-TBbartoLplusNuBbar-s-channel-4FS_TuneCP5_13p6TeV
-# TTbar
-TTtoLNu2Q_TuneCP5_13p6TeV
-TTto2L2Nu_TuneCP5_13p6TeV
-# Signal
-GluGluHtoZG_Zto2L_M-125_TuneCP5_13p6TeV
-GluGluHtoZG_Zto2L_M-120_TuneCP5_13p6TeV
-GluGluHtoZG_Zto2L_M-130_TuneCP5_13p6TeV
-VBFHtoZG_Zto2L_M-125_TuneCP5_13p6TeV
-VBFHtoZG_Zto2L_M-120_TuneCP5_13p6TeV
-VBFHtoZG_Zto2L_M-130_TuneCP5_13p6TeV
-WminusH_HtoZG_WtoAll_Zto2L_M-125_TuneCP5_13p6TeV
-WminusH_HtoZG_WtoAll_Zto2L_M-120_TuneCP5_13p6TeV
-WminusH_HtoZG_WtoAll_Zto2L_M-130_TuneCP5_13p6TeV
-WplusH_HtoZG_WtoAll_Zto2L_M-125_TuneCP5_13p6TeV
-WplusH_HtoZG_WtoAll_Zto2L_M-120_TuneCP5_13p6TeV
-WplusH_HtoZG_WtoAll_Zto2L_M-130_TuneCP5_13p6TeV
-WplusH_HtoZG_WtoAll_M-125_TuneCP5_13p6TeV
-ZH_ZtoAll_HtoZGto2LG_M-125_TuneCP5_13p6TeV
-ZH_ZtoAll_HtoZGto2LG_M-120_TuneCP5_13p6TeV
-ZH_ZtoAll_HtoZGto2LG_M-130_TuneCP5_13p6TeV
-ZH_HtoZG_ZtoAll_M-120_TuneCP5_13p6TeV
-ZH_HtoZG_ZtoAll_M-125_TuneCP5_13p6TeV
-ZH_HtoZG_ZtoAll_M-130_TuneCP5_13p6TeV
-ttHtoZG_Zto2L_M-125_TuneCP5_13p6TeV
-ttHtoZG_Zto2L_M-120_TuneCP5_13p6TeV
-ttHtoZG_Zto2L_M-130_TuneCP5_13p6TeV
 # H To GG
 GluGluHtoGG_M-125_TuneCP5_13p6TeV
-VBFHtoGG_M-125_TuneCP5_13p6TeV
-VHtoGG_M-125_TuneCP5_13p6TeV
-ttHtoGG_M-125_TuneCP5_13p6TeV
-# H To TauTau
-GluGluHToTauTau_M-125_TuneCP5_13p6TeV
-VBFHToTauTau_M125_TuneCP5_13p6TeV
-# H To ZZ
-GluGluHtoZZto4L_M-125_TuneCP5_13p6TeV
-VBFHto2Zto4L_M125_TuneCP5_13p6TeV
-WplusH_Hto2Zto4L_M-125_TuneCP5_13p6TeV
-WminusH_Hto2Zto4L_M-125_TuneCP5_13p6TeV
-ZHto2Zto4L_M125_TuneCP5_13p6TeV
+VBFHto2Mu_M-125_TuneCP5_withDipoleRecoil_13p6TeV
+ZG2JtoG2L2J_EWK_MLL-50_MJJ-120_TuneCP5_withDipoleRecoil_13p6TeV
