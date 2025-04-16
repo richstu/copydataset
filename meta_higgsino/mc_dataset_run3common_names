@@ -1,0 +1,10 @@
+# Dataset filenames for all years (2016, 2017, 2018)
+# One can add a MC_DIR to the dataset, which will be used to set the directory name. 
+# By default the MC_DIR name will be "mc"
+# Example) WH_HToBB_WToLNu_M125 wh
+# This will make a directory called wh
+# Dataset names (mc/signal)
+#Run 3 fastsim central signal samples
+SMS-TChiHH-Hto2G_mNLSP150To700_mLSP0To550_TuneCP5 SMS-TChiHH-Hto2G_central_fastsim
+SMS-TChiZH-Hto2G_mNLSP150To500_mLSP0To350_TuneCP5 SMS-TChiZH-Hto2G_central_fastsim
+SMS-TChiHH_mNLSP150to1300_mLSP0To1100_TuneCP5 SMS-TChiHH_central_fastsim

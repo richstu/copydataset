@@ -1,0 +1,46 @@
+# Year miniaod_year_tag nano_aod_year_tag streams runs corresponding_nanoaodsim_tag
+#2016 17Jul2018 02Apr2020_ver2 DoubleEG,DoubleMuon B NanoAODv7
+#2016 17Jul2018 02Apr2020 DoubleEG,DoubleMuon C,D,E,F,G,H NanoAODv7
+#2017 31Mar2018 02Apr2020 DoubleEG,DoubleMuon B,C,D,E,F NanoAODv7
+#2018 17Sep2018 02Apr2020 DoubleMuon A,B,C NanoAODv7
+## Take v1 and v2 because some datasets only have v1
+#2018 PromptReco-v2 02Apr2020 DoubleMuon D NanoAODv7
+#2016APV UL2016_MiniAODv2 HIPM_UL2016_MiniAODv2_NanoAODv9-v2 DoubleEG,DoubleMuon,SingleMuon,SingleElectron,MuonEG,MET,JetHT B,C,D,E,F NanoAODv9
+#2016APV UL2016_MiniAODv2 HIPM_UL2016_MiniAODv2_NanoAODv9 DoubleEG,DoubleMuon,SingleMuon,SingleElectron,MuonEG,MET,JetHT B,C,D,E,F NanoAODv9
+#2016 UL2016_MiniAODv2 UL2016_MiniAODv2_NanoAODv9 DoubleEG,DoubleMuon,SingleMuon,SingleElectron,MuonEG,MET,JetHT F,G,H NanoAODv9
+#2017 UL2017_MiniAODv2 UL2017_MiniAODv2_NanoAODv9 DoubleEG,DoubleMuon,SingleMuon,SingleElectron,MuonEG,MET,JetHT B,C,D,E,F NanoAODv9
+#2018 UL2018_MiniAODv2 UL2018_MiniAODv2_NanoAODv9 EGamma,DoubleMuon,SingleMuon,MuonEG,MET,JetHT A,B,C,D NanoAODv9
+# Muon
+#2022 10Dec2022 ReRecoNanoAODv11 DoubleMuon,SingleMuon C NanoAODv11
+#2022 10Dec2022 ReRecoNanoAODv11 Muon C,D NanoAODv11
+#2022EE 10Dec2022 ReRecoNanoAODv11 Muon E NanoAODv11
+#2022EE PromptReco-v1 PromptNanoAODv11 Muon F,G NanoAODv11
+#2023 PromptReco PromptNanoAODv11p9 Muon0,Muon1 C NanoAODV11p9
+#2022 27Jun2023 22Sep2023 DoubleMuon,SingleMuon C NanoAODv12
+#2022 27Jun2023 22Sep2023 Muon C,D NanoAODv12
+#2022EE 27Jun2023 22Sep2023 Muon E NanoAODv12
+#2022EE PromptReco 22Sep2023 Muon F,G NanoAODv12
+#2023 PromptReco 22Sep2023 Muon0,Muon1 C NanoAODv12
+#2023BPix PromptReco 22Sep2023 Muon0,Muon1 D NanoAODv12
+# Jet,MET
+#2022 10Dec2022 ReRecoNanoAODv11 MET,JetHT C NanoAODv11
+#2022 10Dec2022 ReRecoNanoAODv11 JetMET C,D NanoAODv11
+#2022EE 10Dec2022 ReRecoNanoAODv11 JetMET E NanoAODv11
+#2022EE PromptReco-v1 PromptNanoAODv11 JetMET F,G NanoAODv11
+#2023 PromptReco PromptNanoAODv11p9 JetMET0,JetMET1 C NanoAODV11p9
+#2022 27Jun2023 22Sep2023 MET,JetHT C NanoAODv12
+#2022 27Jun2023 22Sep2023 JetMET C,D NanoAODv12
+#2022EE 27Jun2023 22Sep2023 JetMET E NanoAODv12
+#2022EE PromptReco 22Sep2023 JetMET F,G NanoAODv12
+#2023 PromptReco 22Sep2023 JetMET0,JetMET1 C NanoAODv12
+#2023BPix PromptReco 22Sep2023 JetMET0,JetMET1 D NanoAODv12
+# EGamma, MuonEG
+#2022 10Dec2022 ReRecoNanoAODv11 EGamma,MuonEG C,D NanoAODv11
+#2022EE 10Dec2022 ReRecoNanoAODv11 EGamma,MuonEG E NanoAODv11
+#2022EE PromptReco-v1 PromptNanoAODv11 EGamma,MuonEG F,G NanoAODv11
+#2023 PromptReco PromptNanoAODv11p9 EGamma0,EGamma1,MuonEG C NanoAODV11p9
+#2022 27Jun2023 22Sep2023 EGamma,MuonEG C,D NanoAODv12
+#2022EE 27Jun2023 22Sep2023 EGamma,MuonEG E NanoAODv12
+#2022EE PromptReco 22Sep2023 EGamma,MuonEG F,G NanoAODv12
+#2023 PromptReco 22Sep2023 EGamma0,EGamma1,MuonEG C NanoAODv12
+#2023BPix PromptReco 22Sep2023 EGamma0,EGamma1,MuonEG D NanoAODv12
